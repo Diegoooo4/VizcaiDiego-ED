@@ -10,8 +10,8 @@ public class Basic0perations {
             System.out.print("Dime el segundo número: ");
             int b = in.nextInt();
 
-            int suma = a + b;
-            System.out.print("Suma: "+suma);
+            int multiplicacio = a * b;
+            System.out.print("Multiplicaio: "+multiplicacio);
     }
 }
 
