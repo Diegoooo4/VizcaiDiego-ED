@@ -1,0 +1,17 @@
+ @Nested
+    class PasswordStrengtStrong {
+
+
+        @Test
+        @DisplayName("Prueba de contraseña fuerte de todas")
+        void WeakShouldReturnFuerteMinMaySimb   () {
+            //Arrange
+            String password ="abcdEF··";
+            PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.STRONG;
+            //Act
+            PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
+            //Assert
+            assertEquals(actual, expected);
+        }
+
+    }
