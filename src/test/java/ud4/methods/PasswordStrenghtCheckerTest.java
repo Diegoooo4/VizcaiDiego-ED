@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
     class PasswordStrenghtCheckerTest {
         @Nested
         class PasswordStrengtInvalid {
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 //assert
                 assertEquals(actual, expected);
             }
+
             @Test
             @DisplayName("Prueba de contraseña error")
             void InvalidoShouldReturnERror() {
@@ -28,13 +30,53 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 //ACT
                 PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
             }
+
             @Test
             @DisplayName("Prueba de contraseña vacia")
-            void InvalidoShouldReturnvacio () {
+            void InvalidoShouldReturnvacio() {
                 //Arange
                 String password = "";
                 PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.INVALID;
                 //ACT
+                PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
+                //Assert
+                assertEquals(actual, expected);
+            }
+        }
+
+        @Nested
+        class PasswordStrengtMedium {
+
+
+            @Test
+            @DisplayName("Prueba de contraseña medio minuscula mayuscula")
+            void MediumShouldReturnMedioMinMay() {
+                //Arrange
+                String password ="abcdEFGH";
+                PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.MEDIUM;
+                //Act
+                PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
+                //Assert
+                assertEquals(actual, expected);
+            }
+            @Test
+            @DisplayName("Prueba de contraseña medio minuscula simbolo")
+            void MediumShouldReturnMedioMinSimb() {
+                //Act
+                String password ="abcd!·$%";
+                PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.MEDIUM;
+                //Arange
+                PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
+                //Assert
+                assertEquals(actual, expected);
+            }
+            @Test
+            @DisplayName("Prueba de contraseña medio caracter mayuscula")
+            void MediumShouldReturnMedioMaySimb() {
+                //Act
+                String password ="ABCD&/()";
+                PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.MEDIUM;
+                //Arange
                 PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
                 //Assert
                 assertEquals(actual, expected);
@@ -86,5 +128,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                             }
 
                     }
-                }
+
+
+
+    }
 
