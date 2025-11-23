@@ -1,4 +1,5 @@
 package ud4.methods;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -46,19 +47,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
         @Nested
         class PasswordStrengtMedium {
-
-
-            @Test
-            @DisplayName("Prueba de contraseña medio minuscula mayuscula")
-            void MediumShouldReturnMedioMinMay() {
-                //Arrange
-                String password ="abcdEFGH";
-                PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.MEDIUM;
-                //Act
-                PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
-                //Assert
-                assertEquals(actual, expected);
-            }
             @Test
             @DisplayName("Prueba de contraseña medio minuscula simbolo")
             void MediumShouldReturnMedioMinSimb() {
@@ -81,7 +69,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 //Assert
                 assertEquals(actual, expected);
             }
+
+
+            @Test
+            @DisplayName("Prueba de contraseña medio minuscula mayuscula")
+            void MediumShouldReturnMedioMinMay() {
+                //Arrange
+                String password = "abcdEFGH";
+                PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.MEDIUM;
+                //Arange
+                PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
+                //Assert
+                assertEquals(actual, expected);
+            }
+
+        @Nested
+        class PasswordStrengtStrong {
+
+
+            @Test
+            @DisplayName("Prueba de contraseña fuerte de todas")
+            void StrongShouldReturnFuerteMinMaySimb() {
+                //Arrange
+                String password = "abcdEF··";
+                PasswordStrenghtChecker.PasswordStrength expected = PasswordStrenghtChecker.PasswordStrength.STRONG;
+                //Act
+                PasswordStrenghtChecker.PasswordStrength actual = PasswordStrenghtChecker.checkStrength(password);
+                //Assert
+                assertEquals(actual, expected);
+            }
         }
+
 
                 @Nested
                 class PasswordStrengtWeak {
@@ -130,6 +148,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                     }
 
 
+
+
+
+        }
 
     }
 
